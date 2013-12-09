@@ -17,7 +17,7 @@ while True:
 		if len(command) == 1 or \
 		   (command[1].upper() != "BLACK" \
 		   and command[1].upper() != "WHITE"):
-			print "please tell me which role you want to play"
+			print "please tell me which role you want to play(e.g, start black/white)"
 			continue
 		print "Start a new game"
 		if command[1].upper() == "BLACK":
@@ -36,6 +36,10 @@ while True:
 		continue
 		
 	if command[0].upper() == "MOVE":	# make a move
+		# check
+		if not 'cb' in dir():
+			print "please start a new game firstly"
+			continue
 		if len(command) < 3:
 			continue
 
