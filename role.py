@@ -60,5 +60,3 @@ class Role:
 				if sumOfWhite > 1 and sumOfBlack == 0 :
 					x[sumOfBlack * 2 + 1] -= sumOfWhite * 30
 		return sum(x)
-
-

@@ -23,7 +23,7 @@ while True:
 		if command[1].upper() == "BLACK":
 			# wait the opponent player to make a move
 			cb = Chessboard(-1)	# black first always
-			pass
+			continue
 		else:
 			# computer make a movement at the begin
 			cb = Chessboard(0)	# black first always
@@ -36,7 +36,7 @@ while True:
 		continue
 		
 	if command[0].upper() == "MOVE":	# make a move
-		if len(command) != 3:
+		if len(command) < 3:
 			continue
 
 		# opponent player's turn
@@ -64,5 +64,3 @@ while True:
 		cb.board = [[random.choice([-1, 0, 1]),random.choice([-1, 0, 1]), random.choice([-1, 0, 1])] for i in range(3)]
 		cb.drawboard()
 		print rl.evaluate(cb.board)
-	
-
