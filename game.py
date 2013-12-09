@@ -55,7 +55,7 @@ while True:
 		cb.changePlayRole()
 		movePosition = rl.search(cb.board, cb.currentRole, 1)	# search for best movement
 		moveResult = cb.move(movePosition[0], movePosition[1])
-		print "Computer : (%d, %d) => %d" % (movePosition[0], movePosition[1], movePosition[2])
+		print "Computer : (%d, %d) => %d" % (movePosition[0], movePosition[1], movePosition[2][0])
 		cb.drawboard()
 		if moveResult != "":
 			print moveResult
