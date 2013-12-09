@@ -38,6 +38,13 @@ class Role:
 		return movePosition
 
 	def evaluate(self, board):
+		# read theta value from theta.txt
+		thetaStr = open("theta.txt").readline()
+		thetaStr = thetaStr[:len(thetaStr) - 1]
+		theta = thetaStr.split(" ")
+		theta = [int(i) for i in theta]
+
+		# calcu the eigenvalues(x)
 		x = [0 for i in range(7)]
 		step = [[1, 1], [-1, 1], [0, 1], [1, 0]]
 		startPoint = [[[0, 0]], [[2, 0]], [[i, 0] for i in range(3)], [[0, i] for i in range(3)]]
@@ -55,8 +62,15 @@ class Role:
 					sx += step[i][0]
 					sy += step[i][1]
 				# print "sumOfBlack = %d | sumOfWhite = %d" % (sumOfBlack, sumOfWhite)
-				if sumOfBlack > 1 and sumOfWhite == 0 :
-					x[sumOfBlack] += sumOfBlack * 30
-				if sumOfWhite > 1 and sumOfBlack == 0 :
-					x[sumOfBlack * 2 + 1] -= sumOfWhite * 30
-		return sum(x)
+				if sumOfBlack > 0 and sumOfWhite == 0 :
+					# x[sumOfBlack] += sumOfBlack * 30
+					x[sumOfBlack] += 1
+				if sumOfWhite > 0 and sumOfBlack == 0 :
+					# x[sumOfBlack * 2 + 1] -= sumOfWhite * 30
+					x[3 + sumOfWhite] += 1
+		# summation
+		print x
+		total = 0
+		for i in range(len(x)):
+			total += x[i] * theta[i]
+		return total
