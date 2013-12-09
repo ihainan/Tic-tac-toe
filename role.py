@@ -68,8 +68,8 @@ class Role:
 				if sumOfWhite > 0 and sumOfBlack == 0 :
 					# x[sumOfBlack * 2 + 1] -= sumOfWhite * 30
 					x[3 + sumOfWhite] += 1
+
 		# summation
-		print x
 		total = 0
 		for i in range(len(x)):
 			total += x[i] * theta[i]
