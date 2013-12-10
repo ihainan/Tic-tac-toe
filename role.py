@@ -12,7 +12,7 @@ class Role:
 		thetaStr = thetaStr[:len(thetaStr) - 1]
 		self.theta = thetaStr.split(" ")
 		self.theta = [int(i) for i in self.theta]
-		print self.theta
+		# print self.theta
 
 	# maxmin search
 	def search(self, board, currentRole, level = 1): 

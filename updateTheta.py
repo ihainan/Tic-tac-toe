@@ -31,6 +31,7 @@ for t in range(times):
 		x = data[2:]
 		for i in range(len(theta)):
 			theta[i] = theta[i] + lr * (objectValue - trainValue) * x[i]
+		print "traindata : %d\nobjectValue : %d\n%s %s"%(trainValue, objectValue, str(x), str(theta))
 
 print theta
 # save theta
